@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'main' %}
+
+<div class="col-md-10 " style="background-color: black; border: 2px solid pink; ">
+    <div class="row" style="margin-top: 20px;">
+      {{request.user.is_authenticated }}
+      {% for pet in pets %}
+      <div class="col-md-3 ">
+        <div class="card" style="width: 100%; margin: 5px;">
+          <img src="{{pet.petimage.url}}" class="card-img-top" alt="..." height="200px" >
+          <div class="card-body">
+            <h5 class="card-title">{{pet.name}}</h5>
+            <h5 class="card-title">{{pet.price}}</h5>
+            <p class="card-text">{{pet.breed}} </p>
+            <p class="card-text"> {{pet.type}}<br> <br> <br>
+              400$ <a href="" style="color: black;">Details</a></p> 
+              
+            <a href='/addtocart/{{pet.id}}' class="btn btn-primary">Add</a>
+            <a href="/details/{{pet.id}}" class="btn btn-primary" style="background-color: black;">Product Details</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      <!-- <div class="col-md-3">
+        <div class="card" style="width: 100%;">
+          <img src="../images/Real Madrid.jpeg" class="card-img-top" alt="..." height="200px">
+          <div class="card-body">
+            <h5 class="card-title">Real Madrid</h5>
+            <p class="card-text">Jersey <br> <br> <br>
+              450$</p>
+            <a href="#" class="btn btn-primary">Add</a>
+            <a href="#" class="btn btn-primary" style="background-color: black;">Product Details</a>
+          </div>
+        </div>
+      </div> -->
+      <!-- <div class="col-md-3">
+        <div class="card" style="width: 100%;">
+          <img src="../images/Retro AC-Milan (1).jpeg" class="card-img-top" alt="..." height="200px">
+          <div class="card-body">
+            <h5 class="card-title">Retro AC Milan</h5>
+            <p class="card-text">Jersey <br> <br> <br>
+              600$</p>
+            <a href="#" class="btn btn-primary">Add</a>
+            <a href="#" class="btn btn-primary" style="background-color: black;">Product Details</a>
+          </div>
+        </div>
+      </div> -->
+      <!-- <div class="col-md-3 ">
+        <div class="card" style="width: 100%; ">
+          <img src="../images/Toni kroos.jpeg" class="card-img-top" alt="..." height="200px">
+          <div class="card-body">
+            <h5 class="card-title">Toni Kroos Jersey</h5>
+            <p class="card-text">Jersey <br> <br> <br>
+            500$</p>
+            <a href="#" class="btn btn-primary">Add</a>
+            <a href="#" class="btn btn-primary" style="background-color: black;">Product Details</a>
+          </div>
+        </div>
+      </div> -->
+
+    </div>
+  </div>
+
+{% endblock 'main' %}

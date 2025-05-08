@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %}
+<div class="col-md-10 mx-auto my-4">
+    <div class="row">
+        <div class="col-md-8">
+            <h1 class="mb-4 text-center text-primary">🛒 Your Cart</h1>
+            {% for cart in mycart %}
+            <div class="row mb-4 border rounded p-3 shadow-sm bg-light">
+                <div class="col-md-5">
+                    <img src="{{ cart.petid.petimage.url }}" class="img-fluid rounded border" alt="Pet Image" style="max-height: 200px;">
+                </div>
+                <div class="col-md-7 d-flex flex-column justify-content-between">
+                    <div>
+                        <h3 class="text-success">{{ cart.petid.name }}</h3>
+                        <p class="text-muted">{{ cart.petid.description }}</p> 
+                        <p><strong>Gender:</strong> {{ cart.petid.gender }}</p>
+                        <p><strong>Price:</strong> ₹{{ cart.petid.price }}</p>
+                    </div>
+
+                    <!-- Uncomment when quantity control is active
+                    <div class="d-flex align-items-center mt-2">
+                        {% if cart.quantity > 1 %}
+                        <a href="/updatequantity/{{cart.id}}/decr" class="btn btn-outline-danger btn-sm me-2">−</a>
+                        {% endif %}
+                        <span><strong>{{ cart.quantity }}</strong></span>
+                        <a href="/updatequantity/{{cart.id}}/incr" class="btn btn-outline-success btn-sm ms-2">+</a>
+                    </div>
+                    <a href="/removecart/{{cart.id}}" class="btn btn-outline-primary mt-3">Remove Item</a>
+                    -->
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-md-4">
+            <h1 class="mb-4 text-center text-primary">🧾 Summary</h1>
+            <div class="border rounded p-4 bg-light shadow-sm">
+                <h4 class="mb-3"><strong>Items:</strong> {{ count }}</h4>
+                <h4 class="mb-4"><strong>Total:</strong> ₹{{ TotalBill }}</h4>
+                <a href="/showmycart" class="btn btn-danger"> Back to Cart</a>
+                <a href="/makepayment" class="btn btn-danger"> Prceed to payment</a>
+
+                <!-- Uncomment when order confirmation is active
+                <a href="/confirmorder" class="btn btn-success w-100">Confirm Order</a>
+                -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock 'main' %}
+

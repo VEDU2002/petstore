@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'main' %}
+
+
+
+<!-- <div class="row  " style="height: 80px; background-color: black; border: 2px solid pink; ">
+    <center>
+    <h3 style="color: pink; margin-top: 20px;">Login Page</h3>
+    </center>
+  </div> -->
+  <div class="col-md-10 border " style="background-color: black; ">
+    {% if error %}
+    <div class='alert alert-danger'>
+        {{error}}
+    </div>
+    {% endif %}
+  <form class="mx-auto" style="width: 30%; background-color: plum; padding: 50px; border-radius: 5px;  margin-top: 25px; margin-bottom: 150px; " action="" method="post">
+    {% csrf_token %}
+    <div class="mb-3 ">
+      <h2 style="text-align: center;">Login</h2>
+      <label for="exampleInputEmail1" class="form-label" style="margin-top: 5px;">Username</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username">
+      
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label" >Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" name="password"><br>
+      
+    </div>
+    <div class="row">
+      
+    </div><br>
+    <button type="submit" class="btn btn-primary  " style="width: 100%; border: none; border-radius: 50px; background-color: #1D1616; ">Login</button>
+  </form>
+  
+</div> 
+
+{% endblock 'main' %}

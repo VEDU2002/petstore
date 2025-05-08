@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'main' %}
+<div class="col-md-10">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Cart Items</h1>
+            {% for cart in mycart %}
+            <div class="row mb-4 border rounded p-3 bg-light">
+                <div class="col-md-6">
+                    <img src="{{cart.petid.petimage.url}}" class="card-img-top" alt="..." height=300px>
+                    
+                </div>
+                <div class="col-md-6 my-1 mt-2 " >
+                    
+                    <div class="card-body">
+                        <h5 class="card-title">{{cart.petid.name}}</h5>
+                        <p class="card-text">{{cart.petid.description}}</p>
+                        {% if cart.quantity > 1 %}
+                        <a class="btn btn-primary">-</a>
+                        {% endif %}
+                        <span class="card-text"><b>Quantity:{{cart.quantity}} </b></span>
+                        <a class="btn btn-primary">+</a>
+                        <p class="card-text">{{cart.petid.gender}}</p>
+                        <p class="card-text">{{cart.petid.price}}</p>
+                        <a href="/removecart/{{cart.id}}" class="btn btn-primary">Remove Item</a>
+                      </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+        <div class="col-md-4">
+                <h1 class="mb-4 text-center">Summary</h1>
+                <div class="border rounded p-3 bg-light">
+                    <h3>Quantity: {{ count }}</h3>
+                    <h3>Total Price: {{ TotalBill }}</h3>
+                    <h3>Quantity : {{count}}</h3>
+                    <h3> Total price : {{TotalBill}}</h3>
+                    <a href="/confirmorder" class="btn btn-primary"> Confirm Order</a>
+                </div>
+            </div>
+            
+                <!-- Add summary details here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock 'main' %}

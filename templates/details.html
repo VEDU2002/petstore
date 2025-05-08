@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %}
+<div class="col-md-10">
+  <div class="row">
+    <div class="col-md-8"> <!-- wider card -->
+      <div class="card shadow-lg" style="margin-top: 20px; border-radius: 15px;">
+        <div class="row g-0">
+          <!-- Image section -->
+          <div class="col-md-6">
+            <img src="{% static 'images/German.png' %}" 
+                 class="img-fluid rounded-start" 
+                 style="height: 100%; object-fit: cover;">
+          </div>
+          <!-- Details section -->
+          <div class="col-md-6">
+            <div class="card-body" style="font-size: 1.1rem;">
+              <h4 class="card-title fw-bold text-primary">{{ pet.name }}</h4>
+              <h6 class="text-muted">Age: {{ pet.age }}</h6>
+              <p class="card-text">{{ pet.breed }} {{ pet.type }}</p>
+              <h5 class="text-success"><strong>Price: ₹{{ pet.price }}</strong></h5>
+              <a href="/details/{{ pet.id }}" class="btn btn-outline-danger btn-lg mt-3 me-2">Details</a>
+              <a href="/addtocart/{{pet.id}}" class="btn btn-primary btn-lg mt-3">Add To Cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+</div>
+{% endblock 'main' %}
