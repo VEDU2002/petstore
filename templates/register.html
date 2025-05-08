@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% include 'header.html' %}
 
 {% load static %}
 
@@ -10,7 +10,7 @@
     </center>
 </div> -->
 
-<div class="col-md-10 border " style="background-color: black; ">
+<div class="col-md-12 border " style="background-color: black; ">
     {% if error %}
     <div class='alert alert-danger'>
         {{error}}
@@ -49,3 +49,4 @@
 </div>
 
 {% endblock 'main' %}
+{% include 'footer.html' %}
