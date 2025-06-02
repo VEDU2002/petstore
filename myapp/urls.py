@@ -17,7 +17,7 @@ urlpatterns=[
     path('showmycart',views.showMyCart),
     path('removecart/<cartid>',views.removeCart),
     path('updatequantity/<cartid>/<operation>', views.updateQuantity),
-    path('confirmorder',views.confirmOrder),
+    path('confirmorder/', views.confirmOrder, name='confirmorder'),
     path('makepayment',views.makePayment),
     path('placeorder',views.placeOrder),
     path('aboutus', views.about),
