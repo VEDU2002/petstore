@@ -5,8 +5,8 @@
 {% block 'main' %}
 
 <div class="col-md-10 " style="background-color: black; border: 2px solid pink; ">
-    <div class="row" style="margin-top: 20px;">
-      {{request.user.is_authenticated }}
+    <div class="row" style="margin: 10px;">
+      <!-- {{request.user.is_authenticated }} -->
       {% for pet in pets %}
       <div class="col-md-3 ">
         <div class="card" style="width: 100%; margin: 5px;">
@@ -16,7 +16,6 @@
             <h5 class="card-title">{{pet.price}}</h5>
             <p class="card-text">{{pet.breed}} </p>
             <p class="card-text"> {{pet.type}}<br> <br> <br>
-              400$ <a href="" style="color: black;">Details</a></p> 
               
             <a href='/addtocart/{{pet.id}}' class="btn btn-primary">Add</a>
             <a href="/details/{{pet.id}}" class="btn btn-primary" style="background-color: black;">Product Details</a>
