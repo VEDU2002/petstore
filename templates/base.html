@@ -1,7 +1,10 @@
 {% include 'header.html' %}
 
 <div class="row">
-    {% include 'sidebar.html' %}
+    {% block sidebar %}
+        {% include 'sidebar.html' %}
+    {% endblock %}
+
 
     {% block 'main' %}
     {% endblock 'main' %}
